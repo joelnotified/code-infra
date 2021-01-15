@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-rabbitmq
+  labels:
+    app: my-rabbitmq
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: my-rabbitmq
+  template:
+    metadata:
+      labels:
+        app: my-rabbitmq
+    spec:
+      containers:
+        - name: my-rabbitmq
+          image: "rabbitmq:{{ .Values.image.tag | default .Chart.AppVersion }}"

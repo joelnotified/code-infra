@@ -6,7 +6,7 @@ resources:
 
 replicas: 
 - name: my-nginx
-  count: 3
+  count: 1
 
 images:
 - name: nginx

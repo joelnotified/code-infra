@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: my-redis
+  name: my-redis
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+      - image: redis:6.0.10
+        name: my-redis
